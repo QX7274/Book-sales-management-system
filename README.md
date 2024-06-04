@@ -10,7 +10,7 @@
 系统功能表如下：
 ![20240604131635](https://github.com/QX7274/Book-sales-management-system/assets/134271611/e216c0e9-faed-4da4-a17b-bfcfd149d48b)
 
-E-R图如下：
+表与表关系如下：
 ![FU%(9P55 8ASQ4{INQ7ZHSS](https://github.com/QX7274/Book-sales-management-system/assets/134271611/9290c458-28b6-491a-881a-bbfe81ccc67d)
 
 ## 功能
