@@ -10,8 +10,8 @@
 系统功能表如下：
 ![20240604131635](https://github.com/QX7274/Book-sales-management-system/assets/134271611/e216c0e9-faed-4da4-a17b-bfcfd149d48b)
 
-表与表关系如下：
-![FU%(9P55 8ASQ4{INQ7ZHSS](https://github.com/QX7274/Book-sales-management-system/assets/134271611/9290c458-28b6-491a-881a-bbfe81ccc67d)
+E-R图如下：
+![c8f1a4a44473f11e30bd5a5940e429c3](https://github.com/QX7274/Book-sales-management-system/assets/134271611/6c927032-6d19-47e8-b328-592a4b54a54c)
 
 ## 功能
 
@@ -64,24 +64,20 @@
 
 为了支持上述需求和功能，我们设计了以下数据库表结构：
 
-- `Books`表：存储图书信息，包括书籍的编号、书名、作者、出版社、出版日期、ISBN号和价格等。
+book 表：存储图书信息，包括书籍的编号 (bookid)、书名 (bookname)、作者 (author)、ISBN 号 (isbn)、类别 (categoryname)、品质 (quality)、价格 (price) 和评分 (point)。
 
-- `Customers`表：存储顾客信息，包括顾客的编号、姓名、联系电话、电子邮件和地址等。
+inventory 表：记录库存信息，包括图书编号 (bookid)、库存数量 (amount) 和最近入库日期 (lastin)。该表与 book 表通过外键关联。
 
-- `Admins`表：存储管理员信息，包括管理员的编号、用户名、密码、姓名和联系电话等。
+adm 表：存储管理员信息，包括管理员的编号 (admid)、密码 (admpass)、姓名 (admname) 和联系方式 (admcontact)。
 
-- `Sales`表：记录销售信息，包括销售的编号、销售日期、总销售金额、顾客编号、管理员编号和支付状态等。
+consumer 表：存储顾客信息，包括顾客的编号 (consumerid)、密码 (consumerpass)、姓名 (consumername)、电子邮件 (email) 和会员等级 (vip)。
 
-- `Orders`表：存储订单信息，包括订单的编号、销售编号、下单日期、顾客编号和管理员编号等。
+sale 表：记录销售信息，包括销售的编号 (saleid)、管理员编号 (admid)、顾客编号 (consumerid)、总销售金额 (totalprice)、支付金额 (payprice) 和支付状态 (ifpay)。该表与 adm 表和 consumer 表通过外键关联。
 
-- `OrderDetails`表：存储订单细节信息，包括订单细节的编号、订单编号、图书编号、数量和价格等。
+detail 表：存储订单细节信息，包括订单细节的编号 (detailid)、销售编号 (saleid)、图书编号 (bookid) 和数量 (quantity)。该表与 sale 表和 book 表通过外键关联。
 
-- `Inventory`表：记录库存信息，包括图书编号、库存数量和最近入库日期等。
+reback 表：记录退货信息，包括退货的编号 (rebackid)、顾客编号 (consumerid)、销售编号 (saleid) 和退货状态 (return_status)。该表与 consumer 表和 sale 表通过外键关联。
 
-- `Returns`表：记录退货信息，包括退货的编号、顾客编号、订单编号、退货日期和退货状态等。
-
-- `Members`表：存储会员信息，包括会员的编号、顾客编号、会员等级和积分等。
-
-- `shopCar`表：存储购物车信息，包括购物车的编号、顾客编号、图书编号、数量和创建日期等。
+shopcar 表：存储购物车信息，包括购物车的编号 (carid)、顾客编号 (consumerid)、图书编号 (bookid)、数量和创建日期 (createddate)。该表与 consumer 表和 book 表通过外键关联。
   
 这些表将进一步丰富图书销售管理系统的功能和数据存储，使其更加全面和实用。
